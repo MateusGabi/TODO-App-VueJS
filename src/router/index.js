@@ -1,15 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import VueJS from '@/components/VueJS'
+import Dashboard from '@/components/Dashboard'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/VueJS',
+      name: 'VueJS',
+      component: VueJS
+    },
+    {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'Dashboard',
+      component: Dashboard
     }
   ]
 })
