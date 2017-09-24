@@ -31,6 +31,10 @@
         </div>
 
       </div>
+
+      <footer>
+        <p class="text-center"><small>&copy; Developed by <a href="https://github.com/MateusGabi" target="_blank">Mateus Gabi</a> using <a href="https://vuejs.org/" target="_blank">VueJS</a></small></p>
+      </footer>
     </div>
 
   </div>
