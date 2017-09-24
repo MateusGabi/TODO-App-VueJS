@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container-fluid">
+  <div id="app">
     <router-view></router-view>
   </div>
 </template>
@@ -11,5 +11,11 @@ export default {
 </script>
 
 <style>
-@import "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('../node_modules/bootstrap/dist/css/bootstrap.css');
+
+* {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 </style>
