@@ -1,22 +1,44 @@
 <template>
   <div>
-    <h1>TODO App</h1>
+    <Navbar />
 
-    <h2>TODO List</h2>
+    <div class="jumbotron col-md-6 col-md-offset-3">
+      <div class="container">
 
-    <form>
-      <input type="text" placeholder="name" v-model="newTodo.name">
-      <input type="submit" value="Save" v-on:click="addTodo">
-    </form>
+        <h3 class="text-center">TODO List</h3>
 
-    <ul>
-      <li v-for="todo in todos" v-on:click="removeTodo(todo)"> {{ todo.name }}</li>
-    </ul>
+        <form class="form-horizontal" v-on:submit="addTodo">
+          <input class="form-control" type="text" placeholder="What you shall to do?" v-model="newTodo.name">
+        </form>
+
+        <ul v-if="todos.length > 0">
+          <li v-for="todo in todos">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <input type="checkbox" v-on:click="removeTodo(todo)">
+                  </span>
+                  <input type="text" class="form-control" v-bind:value="todo.name">
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+          </li>
+        </ul>
+
+        <div v-if="todos.length == 0" class="alert alert-warning" role="alert">
+          <strong>Awesome!</strong> There's nothing to do!
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
 import TODOService from '@/services/TODOService.vue'
+import Navbar from '@/components/Navbar.vue'
 
 let todosRef = TODOService.getRef()
 
@@ -43,6 +65,20 @@ export default {
     }
   },
 
-  components: { TODOService }
+  components: {
+    TODOService,
+    Navbar
+  }
 }
 </script>
+
+<style scoped>
+ul {
+  margin: 0;
+  padding: 10px 0;
+}
+li {
+  list-style: none;
+  padding: 5px 0;
+}
+</style>
